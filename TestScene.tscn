@@ -1,19 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjhgx1e6xiiu3"]
+[gd_scene load_steps=3 format=3 uid="uid://bjhgx1e6xiiu3"]
 
-[ext_resource type="PackedScene" uid="uid://dycq57ii36uqs" path="res://player.tscn" id="1_vjan1"]
+[ext_resource type="Texture2D" uid="uid://bpa6s4rc4ck5p" path="res://Sprites/Player.png" id="1_vpvxx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obokv"]
+size = Vector2(52, 66)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_vjan1")]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(50, 50)
+texture = ExtResource("1_vpvxx")
 
-[node name="Player2" parent="." instance=ExtResource("1_vjan1")]
-position = Vector2(326, 297)
-
-[node name="Player3" parent="." instance=ExtResource("1_vjan1")]
-position = Vector2(429, 117)
-
-[node name="Player4" parent="." instance=ExtResource("1_vjan1")]
-position = Vector2(299, 384)
-
-[node name="Player5" parent="." instance=ExtResource("1_vjan1")]
-position = Vector2(138, 237)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_obokv")
