@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7xiqr4hp7fl2"]
+[gd_scene load_steps=7 format=3 uid="uid://b7xiqr4hp7fl2"]
 
 [ext_resource type="Material" uid="uid://c0tq4hl2dtncg" path="res://Materials/TestMaterial.tres" id="1_s85mv"]
 [ext_resource type="Material" uid="uid://b026hwolgx86p" path="res://Materials/Material3.tres" id="2_hqf1q"]
@@ -7,9 +7,14 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_v7fr5"]
 
+[sub_resource type="SphereMesh" id="SphereMesh_hcgye"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w6ddx"]
+
 [node name="Node3D" type="Node3D"]
 
 [node name="Snowman" type="Node3D" parent="."]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Snowman"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.0249743, 0.78842, 0)
@@ -39,3 +44,30 @@ transform = Transform3D(1, 0, 0, 0, 0.32816, 0, 0, 0, 0.395925, -0.879768, 2.995
 material_override = ExtResource("1_s85mv")
 mesh = SubResource("BoxMesh_v7fr5")
 skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_hcgye")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.479703, 0.628912, -0.611846, 0.877431, -0.343834, 0.334504, 0, -0.697315, -0.716765, -0.24444, 3.0821, 2.03973)
+visible = false
+light_color = Color(1, 0.72, 0.72, 1)
+light_energy = 4.0
+shadow_enabled = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(-0.46925, -0.759985, 0.449698, 0.877431, -0.343834, 0.334504, -0.0995966, 0.551545, 0.828178, 1.39758, 0.540161, 2.98226)
+visible = false
+light_color = Color(0.221907, 0.268749, 1, 1)
+light_energy = 7.0
+shadow_enabled = true
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.72839, 0, 0, 0, 1, 0, 0, 0, 4.15634, 0, 0, 0)
+mesh = SubResource("PlaneMesh_w6ddx")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.471187, -0.48694, 0.73544, 0.85709, -0.0558818, 0.512127, -0.208277, 0.871646, 0.443682, 1.39758, 2.06337, 1.60711)
+light_color = Color(1, 0.56, 0.56, 1)
+light_energy = 3.0
+shadow_enabled = true
